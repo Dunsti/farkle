@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
+import Dice from "./Dice";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<div>
+				<Dice eyes={1} width={50} />
+				<Dice eyes={1} width={100} />
+				<Dice eyes={1} width={200} />
+				<Dice eyes={1} width={400} />
+			</div>
+		</div>
+	);
 }
 
 export default App;

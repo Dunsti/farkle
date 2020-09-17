@@ -1,38 +1,43 @@
 .App {
-  text-align: center;
+	text-align:       center;
+	width:            100%;
+	background-color: darkgreen;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rect_lo {
+	fill:         #FF9999;
+	fill-rule:    evenodd;
+	stroke-width: 0.23047;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.rect_ro {
+	fill:         #cc0000;
+	fill-rule:    evenodd;
+	stroke-width: 0.23047;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.rect_ru {
+	fill:         #330000;
+	fill-rule:    evenodd;
+	stroke-width: 0.23047;
 }
 
-.App-link {
-  color: #61dafb;
+.circle {
+	fill:         #FF0000;
+	fill-rule:    evenodd;
+	stroke-width: 0.23047;
+	stroke:       #999999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.shadow {
+	fill:         #666666;
+	fill-rule:    even;
+	stroke-width: 0;
+}
+
+.eyes {
+	fill:         #FFFFFF;
+	fill-rule:    evenodd;
+	stroke-width: 0.33269;
+	stroke:       #999999;
 }
