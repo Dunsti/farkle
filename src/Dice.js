@@ -1,115 +1,108 @@
 import React from 'react';
 
 export default class Dice extends React.Component {
-	// renderSwitch(param) {
-	// 	let returnvalue;
-	// 	switch (param) {
-	// 		case 1:
-	// 			returnvalue = returnvalue + <circle
-	// 				cx="50"
-	// 				cy="50"
-	// 				r="7.5"
-	// 				className="eyes"
-	// 			/>;
-	//
-	// 	}
-	// }
+	drawEye(coords) {
+		return (
+			<circle
+				cx={coords[0]}
+				cy={coords[1]}
+				r="7.5"
+				className="eyes"
+			/>
+		)
+	}
+
+	renderEyes() {
+		let eyeCoords;
+		switch (this.props.eyes) {
+			case 1:
+				eyeCoords = [[50, 50]];
+				break;
+			case 2:
+				eyeCoords = [[30, 30], [70, 70]];
+				break;
+			case 3:
+				eyeCoords = [[30, 30], [50, 50], [70, 70]];
+				break;
+			case 4:
+				eyeCoords = [[30, 30], [30, 70], [70, 30], [70, 70]];
+				break;
+			case 5:
+				eyeCoords = [[30, 30], [30, 70], [50, 50], [70, 30], [70, 70]];
+				break;
+			case 6:
+				eyeCoords = [[30, 30], [30, 50], [30, 70], [70, 30], [70, 50], [70, 70]];
+				break;
+			default:
+				eyeCoords = [];
+				break;
+		}
+		return eyeCoords.map(this.drawEye);
+	}
 
 	render() {
+		let xrotate = "rotate(" + this.props.rotate + ",50,50)";
+		let renderedEyes = this.renderEyes();
 		return (
 			<svg
-				viewBox="0 0 110 110"
-				height={this.props.width}
-				width={this.props.width}
+				viewBox="0 0 200 200"
+				height={this.props.size}
+				width={this.props.size}
 			>
 				<defs>
-					<filter id="f1" x="0" y="0">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+					<filter id="f1">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+					</filter>
+					<filter id="dropShadow">
+						<feGaussianBlur in="SourceAlpha" stdDeviation="10" />
+						<feOffset dx="5" dy="5" />
+						<feMerge>
+							<feMergeNode />
+							<feMergeNode in="SourceGraphic" />
+						</feMerge>
 					</filter>
 				</defs>
-				<rect
-					ry="20%"
-					y="5"
-					x="5"
-					height="100"
-					width="100"
-					className="shadow"
-					filter="url(#f1)"
-				/>
-				<rect
-					ry="20%"
-					y="0"
-					x="0"
-					height="100"
-					width="100"
-					className="rect_ro"
-				/>
-				<rect
-					ry="20%"
-					x="0"
-					y="0"
-					height="70"
-					width="70"
-					className="rect_lo"
-				/>
-				<rect
-					ry="20%"
-					x="30"
-					y="30"
-					height="70"
-					width="70"
-					className="rect_ru"
-				/>
-				<rect
-					ry="40%"
-					y="0"
-					x="0"
-					height="100"
-					width="100"
-					className="circle"
-				/>
-				<circle
-					cx="50"
-					cy="50"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="30"
-					cy="50"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="30"
-					cy="70"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="30"
-					cy="30"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="70"
-					cy="30"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="70"
-					cy="50"
-					r="7.5"
-					className="eyes"
-				/>
-				<circle
-					cx="70"
-					cy="70"
-					r="7.5"
-					className="eyes"
-				/>
+
+
+				<g>
+					<g transform="translate(50,50)" filter="url(#dropShadow)">
+						<g transform={xrotate}>
+							<rect
+								ry="20"
+								y="0"
+								x="0"
+								height="100"
+								width="100"
+								className="rect_rolu"
+							/>
+							<rect
+								ry="20"
+								x="0"
+								y="0"
+								height="70"
+								width="70"
+								className="rect_lo"
+							/>
+							<rect
+								ry="20"
+								x="30"
+								y="30"
+								height="70"
+								width="70"
+								className="rect_ru"
+							/>
+							<rect
+								ry="40"
+								y="0"
+								x="0"
+								height="100"
+								width="100"
+								className="circle"
+							/>
+							{renderedEyes}
+						</g>
+					</g>
+				</g>
 			</svg>
 		)
 	}

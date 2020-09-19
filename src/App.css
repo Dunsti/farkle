@@ -7,37 +7,31 @@
 .rect_lo {
 	fill:         #FF9999;
 	fill-rule:    evenodd;
-	stroke-width: 0.23047;
+	stroke-width: 0;
 }
 
-.rect_ro {
-	fill:         #cc0000;
+.rect_rolu {
+	fill:         #CC0000;
 	fill-rule:    evenodd;
-	stroke-width: 0.23047;
+	stroke-width: 0;
 }
 
 .rect_ru {
-	fill:         #330000;
+	fill:         #660000;
 	fill-rule:    evenodd;
-	stroke-width: 0.23047;
+	stroke-width: 0;
 }
 
 .circle {
 	fill:         #FF0000;
 	fill-rule:    evenodd;
-	stroke-width: 0.23047;
+	stroke-width: 0.5;
 	stroke:       #999999;
-}
-
-.shadow {
-	fill:         #666666;
-	fill-rule:    even;
-	stroke-width: 0;
 }
 
 .eyes {
 	fill:         #FFFFFF;
 	fill-rule:    evenodd;
-	stroke-width: 0.33269;
+	stroke-width: 0.5;
 	stroke:       #999999;
 }

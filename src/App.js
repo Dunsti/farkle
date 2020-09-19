@@ -2,17 +2,27 @@ import React from 'react';
 import Dice from "./Dice";
 import './App.css';
 
-function App() {
-	return (
-		<div className="App">
-			<div>
-				<Dice eyes={1} width={50} />
-				<Dice eyes={1} width={100} />
-				<Dice eyes={1} width={200} />
-				<Dice eyes={1} width={400} />
-			</div>
-		</div>
-	);
-}
+export default class App extends React.Component {
+	drawDice() {
+		return (
+			<Dice
+				eyes={Math.floor(Math.random() * 6 + 1)} size={100} rotate={Math.floor(Math.random() * 90 - 45)}
+			/>
+		);
+	}
 
-export default App;
+	render() {
+		let output = [];
+		let i = 0
+		const count = 6;
+
+		while (i < count) {
+			output.push(this.drawDice());
+			i++;
+		}
+
+		return (
+			<div className="App">{output}</div>
+		);
+	}
+}
