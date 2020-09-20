@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dice.css'
 
 export default class Dice extends React.Component {
 	drawEye(coords) {
@@ -48,14 +49,15 @@ export default class Dice extends React.Component {
 				viewBox="0 0 200 200"
 				height={this.props.size}
 				width={this.props.size}
+				className="Dice"
 			>
 				<defs>
 					<filter id="f1">
-						<feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+						<feGaussianBlur in="SourceGraphic" stdDeviation="1" />
 					</filter>
 					<filter id="dropShadow">
 						<feGaussianBlur in="SourceAlpha" stdDeviation="10" />
-						<feOffset dx="5" dy="5" />
+						<feOffset dx="10" dy="10" />
 						<feMerge>
 							<feMergeNode />
 							<feMergeNode in="SourceGraphic" />

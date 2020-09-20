@@ -19,7 +19,10 @@
 		"watch": "npm-watch"
 	},
 	"watch": {
-		"build": "src/"
+		"build": {
+			"patterns": "src",
+			"extensions": "*"
+		}
 	},
 	"eslintConfig": {
 		"extends": "react-app"
